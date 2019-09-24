@@ -9,7 +9,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DraggableDirective } from './draggable.directive';
 import { DroppableDirective } from './droppable.directive';
 import { DragService } from './drag.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { MaterialModule } from './material';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    DragDropModule
+    DragDropModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     DragService
