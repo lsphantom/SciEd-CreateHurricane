@@ -36,11 +36,11 @@
 }
 
 #map-draggable-wrap {
+	position: relative;
 	border: 1px solid red;
 	width: 800px;
 	height: 534px;
 }
-
 
 .map-bkg {
 	width: 100%;
@@ -48,4 +48,37 @@
 
 .hidden {
 	display: none;
+}
+.droppable-area {
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	border: 2px dashed white;
+	border-radius: 50%;
+}
+#a1 {
+	left: 61px;
+	top: 136px;
+}
+#a2 {
+	left: 161px;
+	top: 241px;
+}
+#a3 {
+	left: 197px;
+	top: 96px;
+}
+#a4 {
+	left: 280px;
+	top: 126px;
+}
+
+
+#starter-list {
+	border: 1px solid purple;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
 }

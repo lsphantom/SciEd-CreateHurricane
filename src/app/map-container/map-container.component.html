@@ -1,4 +1,4 @@
-<div id="map-draggable-wrap">
+<div id="map-draggable-wrap" class="drag-boundary">
     <!-- map backgrounds -->
     <img src="assets/map-base.jpg" class="map-bkg" >
     <img src="assets/map-sstemp.jpg" class="map-bkg hidden" >
@@ -6,21 +6,21 @@
     <img src="assets/map-wind.jpg" class="map-bkg hidden" >
 
     <!-- map type info -->
-    <div class="map-type-info">
+    <div class="map-type-info hidden">
         <p><strong>Sea Surface Temperature</strong><br>
         The water temperature at the ocean surface (known as sea surface temperature) 
         impacts the strength of a hurricane. Warm water fuels the storm, and creates higher humidity in the air.
         </p>
     </div>
 
-    <div class="map-type-info">
+    <div class="map-type-info hidden">
         <p><strong>Moisture</strong><br>
         Hurricanes require moisture in the air, or humidity. When the humid air is forced upward, 
         clouds form and rain falls.  Hurricanes produce a tremendous amount of rain.
         </p>
     </div>
 
-    <div class="map-type-info">
+    <div class="map-type-info hidden">
         <p><strong>Wind</strong><br>
         If upper level winds are too speedy, hurricanes are not likely to form.
         In places where upper level winds are calm, hurricanes are more likely to form and grow.
@@ -28,14 +28,14 @@
     </div>
 
     <!-- map hurricane blurbs -->
-    <div class="hurr-outcome">
+    <div class="hurr-outcome hidden">
         <p><strong>Strong hurricane weakens</strong><br>
         Your hurricane got into cooler water and stronger winds at the northern end of the Gulf of Mexico.
         It may have been larger furter south, but here it is weakening.
         </p>
     </div>
 
-    <div class="hurr-outcome">
+    <div class="hurr-outcome hidden">
         <p><strong>Hurricane weakens</strong><br>
         Hurricanes can survive in this area, but conditions are not ideal.
         A big storm can weaken here since ocean temperatures are cooler, air is less humid,
@@ -43,32 +43,51 @@
         </p>
     </div>
 
-    <div class="hurr-outcome">
+    <div class="hurr-outcome hidden">
         <p><strong>Hurricane grows very strong</strong><br>
         Your hurricane is growing into a massive storm because it has just the conditions it needs to grow - warm water, calm winds above, and humidity.
         </p>
     </div>
 
-    <div class="hurr-outcome">
+    <div class="hurr-outcome hidden">
         <p><strong>Strong hurricane thrives</strong><br>
         Conditions are pretty good for strong hurricanes here. The water is warm, the winds are calm up high, and the air is humid.
         </p>
     </div>
 
-    <div class="hurr-outcome">
+    <div class="hurr-outcome hidden">
         <p><strong>No hurricane here!</strong><br>
         Hurricanes and tropical storms don't typically form here.
         It's too windy, the ocean is too cold, and there is less moisture in the air.
         </p>
     </div>
 
-    <div class="hurr-outcome">
+    <div class="hurr-outcome hidden">
         <p><strong>Hurricane forms and grows</strong><br>
         Your hurricane is heading west and growing in size. It is in an area with just the right conditions: warm water, calm winds, and moisture.
         </p>
     </div>
 
-    <!-- map drop spots -->
+    <!-- drag and drop interaction -->
+    <div cdkDropListGroup>
+    <div id="starter-list" 
+        cdkDropList
+        [cdkDropListData]="starterList"
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListEnterPredicate]="noReturnPredicate">
 
+        <div *ngFor="let item of starterList" cdkDrag cdkDragBoundary=".drag-boundary">
+            <h2>{{item}}</h2>
+        </div>
+    </div>
 
+    <!-- droppable areas -->
+    <div *ngFor="let dropArea of dropAreas; let i = index;" id="a{{i}}" class="droppable-area" cdkDropListData="dropArea{{i}}" cdkDropList (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea[i]" cdkDrag cdkDragBoundary=".drag-boundary">
+            <h2>{{item}}</h2>
+        </div>
+    </div>
+    
+
+    </div>
 </div>
