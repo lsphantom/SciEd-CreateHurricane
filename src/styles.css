@@ -73,12 +73,49 @@
 	top: 126px;
 }
 
+#a5 {
+	left: 340px;
+	top: 185px;
+}
+#a6 {
+	left: 356px;
+	top: 268px;
+}
+#a7 {
+	left: 697px;
+	top: 20px;
+}
+#a8 {
+	left: 380px;
+	top: 30px;
+}
+
+#a9 {
+	left: 550px;
+	top: 45px;
+}
+#a10 {
+	left: 425px;
+	top: 125px;
+}
+#a11 {
+	left: 568px;
+	top: 154px;
+}
+#a12 {
+	left: 527px;
+	top: 286px;
+}
+#a0 {
+	left: 640px;
+	top: 300px;
+}
 
 #starter-list {
 	border: 1px solid purple;
 	width: 50px;
 	height: 50px;
 	position: absolute;
-	left: 50%;
-	top: 50%;
+	left: 455px;
+	top: 260px;
 }
