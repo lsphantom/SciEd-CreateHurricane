@@ -77,17 +77,28 @@
         [cdkDropListEnterPredicate]="noReturnPredicate">
 
         <div *ngFor="let item of starterList" cdkDrag cdkDragBoundary=".drag-boundary">
-            <h2>{{item}}</h2>
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
         </div>
     </div>
 
     <!-- droppable areas -->
     <div *ngFor="let dropArea of dropAreas; let i = index;" id="a{{i}}" class="droppable-area" cdkDropListData="dropArea{{i}}" cdkDropList (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea[i]" cdkDrag cdkDragBoundary=".drag-boundary">
-            <h2>{{item}}</h2>
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
         </div>
     </div>
     
-
     </div>
+
+
 </div>
+<div id="submaps-wrap" class="">
+    <div id="map-sstemp" class="col-xs-4"></div>
+    <div id="map-moist" class="col-xs-4"></div>
+    <div id="map-wind" class="col-xs-4"></div>
+</div>
+<p id="tap-instructions">Tap to select a map and explore how each factor affects hurricanes.</p>

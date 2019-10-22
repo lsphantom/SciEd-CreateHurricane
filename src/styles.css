@@ -36,10 +36,10 @@
 }
 
 #map-draggable-wrap {
+	border: 1px solid blue;
 	position: relative;
-	border: 1px solid red;
 	width: 800px;
-	height: 534px;
+	height: 400px;
 }
 
 .map-bkg {
@@ -112,10 +112,68 @@
 }
 
 #starter-list {
-	border: 1px solid purple;
-	width: 50px;
-	height: 50px;
+	/*border: 1px solid purple;*/
+	width: 60px;
+	height: 60px;
 	position: absolute;
 	left: 455px;
 	top: 260px;
 }
+
+#submaps-wrap {
+	border: 1px solid red;
+	width: 100%;
+	max-width: 800px;
+	height: 150px;
+}
+
+.hurr-symbol {
+	width: 60px;
+	height: 60px;
+}
+.hurr-symbol img {
+	width: 100%;
+	height: auto;
+}
+
+#tap-instructions {
+	color: #fff;
+	text-shadow: 0px -2px 4px #333, 1px 1px 1px #333, 2px 2px 2px #333;
+}
+
+/* ROTATION BASE */
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+	from {
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	to {
+	  -webkit-transform: rotate(-360deg);
+	  -o-transform: rotate(-360deg);
+	  transform: rotate(-360deg);
+	}
+  }
+  @keyframes rotating {
+	from {
+	  -ms-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  -webkit-transform: rotate(0deg);
+	  -o-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	to {
+	  -ms-transform: rotate(-360deg);
+	  -moz-transform: rotate(-360deg);
+	  -webkit-transform: rotate(-360deg);
+	  -o-transform: rotate(-360deg);
+	  transform: rotate(-360deg);
+	}
+  }
+  .rotating {
+	-webkit-animation: rotating 1.8s linear infinite;
+	-moz-animation: rotating 1.8s linear infinite;
+	-ms-animation: rotating 1.8s linear infinite;
+	-o-animation: rotating 1.8s linear infinite;
+	animation: rotating 1.8s linear infinite;
+  }
