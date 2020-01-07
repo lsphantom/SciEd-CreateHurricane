@@ -1,26 +1,29 @@
 <div id="map-draggable-wrap" class="drag-boundary">
     <!-- map backgrounds -->
-    <img src="assets/map-base.jpg" class="map-bkg" >
-    <img src="assets/map-sstemp.jpg" class="map-bkg hidden" >
-    <img src="assets/map-moist.jpg" class="map-bkg hidden" >
-    <img src="assets/map-wind.jpg" class="map-bkg hidden" >
+    <img src="assets/map-base.jpg" class="map-bkg {{map1}}" >
+    <img src="assets/map-sstemp.jpg" class="map-bkg {{sstemp}}" >
+    <img src="assets/map-moist.jpg" class="map-bkg {{moist}}" >
+    <img src="assets/map-wind.jpg" class="map-bkg {{wind}}" >
+
+    <!-- overlay reset button -->
+    <button id="map-close-button" class="{{closeButton}}" (click)="hideMapOverlay()">X</button>
 
     <!-- map type info -->
-    <div class="map-type-info hidden">
+    <div class="map-type-info {{sstemp}}">
         <p><strong>Sea Surface Temperature</strong><br>
         The water temperature at the ocean surface (known as sea surface temperature) 
         impacts the strength of a hurricane. Warm water fuels the storm, and creates higher humidity in the air.
         </p>
     </div>
 
-    <div class="map-type-info hidden">
+    <div class="map-type-info {{moist}}">
         <p><strong>Moisture</strong><br>
         Hurricanes require moisture in the air, or humidity. When the humid air is forced upward, 
         clouds form and rain falls.  Hurricanes produce a tremendous amount of rain.
         </p>
     </div>
 
-    <div class="map-type-info hidden">
+    <div class="map-type-info {{wind}}">
         <p><strong>Wind</strong><br>
         If upper level winds are too speedy, hurricanes are not likely to form.
         In places where upper level winds are calm, hurricanes are more likely to form and grow.
@@ -83,22 +86,166 @@
         </div>
     </div>
 
-    <!-- droppable areas -->
-    <div *ngFor="let dropArea of dropAreas; let i = index;" id="a{{i}}" class="droppable-area" cdkDropListData="dropArea{{i}}" cdkDropList (cdkDropListDropped)="drop($event)">
+    <!-- droppable areas TODO: CANNOT OVERCOME LOOPING ERROR ON DROPLISTDATA
+    <div *ngFor="let dropArea of dropAreas; let i = index;" id="a{{i}}" class="droppable-area"
+        cdkDropList
+        cdkDropListData="dropArea{{i}}"
+        (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea[i]" cdkDrag cdkDragBoundary=".drag-boundary">
             <div class="hurr-symbol rotating">
                 <img src="assets/symbol.png" class="img-responsive">
             </div>
         </div>
+    </div> -->
+    <div id="a0" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea0"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea0" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
     </div>
+    <div id="a1" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea1"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea1" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div id="a2" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea2"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea2" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div id="a3" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea3"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea3" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div id="a4" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea4"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea4" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div id="a5" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea5"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea5" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div id="a6" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea6"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea6" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div id="a7" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea7"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea7" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div id="a8" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea8"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea8" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div id="a9" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea9"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea9" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div id="a10" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea10"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea10" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div id="a11" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea11"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea11" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+    <div id="a12" class="droppable-area"
+        cdkDropList
+        [cdkDropListData]="dropArea12"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let item of dropArea12" cdkDrag cdkDragBoundary=".drag-boundary">
+            <div class="hurr-symbol rotating">
+                <img src="assets/symbol.png" class="img-responsive">
+            </div>
+        </div>
+    </div>
+
+    
     
     </div>
 
 
 </div>
 <div id="submaps-wrap" class="">
-    <div id="map-sstemp" class="col-xs-4"></div>
-    <div id="map-moist" class="col-xs-4"></div>
-    <div id="map-wind" class="col-xs-4"></div>
+    <div id="map-sstemp" class="col-xs-4">
+        <a href="javascript:void(0)" class="map-type-selector" (click)="selectMapOverlay('sstemp')"></a>
+        <div id="sst-marker" class="dot-marker" [style.left]="thumbX" [style.top]="thumbY"></div>
+    </div>
+    <div id="map-moist" class="col-xs-4">
+        <a href="javascript:void(0)" class="map-type-selector" (click)="selectMapOverlay('moist')"></a>
+        <div id="m-marker" class="dot-marker" [style.left]="thumbX" [style.top]="thumbY"></div>
+    </div>
+    <div id="map-wind" class="col-xs-4">
+        <a href="javascript:void(0)" class="map-type-selector" (click)="selectMapOverlay('wind')"></a>
+        <div id="w-marker" class="dot-marker" [style.left]="thumbX" [style.top]="thumbY"></div>
+    </div>
 </div>
 <p id="tap-instructions">Tap to select a map and explore how each factor affects hurricanes.</p>

@@ -11,6 +11,7 @@ export class MapContainerComponent implements OnInit {
   //Drag and drop arrays
   starterList = [ 'HS' ];
 
+  dropArea0 = [];
   dropArea1 = [];
   dropArea2 = [];
   dropArea3 = [];
@@ -23,9 +24,11 @@ export class MapContainerComponent implements OnInit {
   dropArea10 = [];
   dropArea11 = [];
   dropArea12 = [];
-  dropArea13 = [];
 
-  dropAreas = [this.dropArea1,
+  testList = [];
+
+  dropAreas = [this.dropArea0,
+              this.dropArea1,
               this.dropArea2,
               this.dropArea3,
               this.dropArea4,
@@ -36,11 +39,17 @@ export class MapContainerComponent implements OnInit {
               this.dropArea9,
               this.dropArea10,
               this.dropArea11,
-              this.dropArea12,
-              this.dropArea13
+              this.dropArea12
             ];
   
+  map1 = 'active'; //Base map
+  sstemp = '';
+  moist = '';
+  wind = '';
+  closeButton = '';
 
+  thumbX = '65%';
+  thumbY = '71%';
 
   drop(event: CdkDragDrop<string[]>)
   {
@@ -48,16 +57,44 @@ export class MapContainerComponent implements OnInit {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     }
     else {
+      console.log('prev cont: ', event.previousContainer);
+      console.log('current: ', event.container);
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
     }
+
+    this.calculateDotPosition(event.container.element.nativeElement.offsetLeft, event.container.element.nativeElement.offsetTop);
   }
 
   /** Do not allow manual return. */
   noReturnPredicate() {
     return false;
+  }
+
+  selectMapOverlay(map) {
+    this.hideMapOverlay();
+    this.map1 = '';
+    this.closeButton = 'active';
+    this[map] = 'active';
+  }
+
+  hideMapOverlay() {
+    this.map1 = 'active';
+    this.sstemp = '';
+    this.moist = '';
+    this.wind = '';
+    this.closeButton = '';
+  }
+
+  calculateDotPosition (x, y) {
+    //Calculate new dot position including border offsets ~40px;
+    let newPosX = ((x/800)*100);
+    let newPosY = ((y/400)*100);
+
+    this.thumbX = newPosX + '%';
+    this.thumbY = newPosY + '%';
   }
 
 

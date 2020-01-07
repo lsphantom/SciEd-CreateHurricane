@@ -11,6 +11,9 @@
 }
 
 /*Base backgrounds*/
+#interactive-stage {
+	margin-top: 58px;
+}
 .hurr-bkg {
 	background-color: #c5daf4;
 	background-image: url('assets/background.jpg');
@@ -36,14 +39,41 @@
 }
 
 #map-draggable-wrap {
-	border: 1px solid blue;
+	/*border: 1px solid blue;*/
 	position: relative;
 	width: 800px;
 	height: 400px;
 }
 
+#map-close-button {
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	border: 2px solid #000;
+	display: none;
+}
+#map-close-button.active {
+	display: block;
+}
+.dot-marker {
+	width: 4px;
+	height: 4px;
+	background-color: #000;
+	border-radius: 50%;
+	position: absolute;
+	left: 65%;
+	top: 71%;
+}
+
 .map-bkg {
 	width: 100%;
+	display: none;
+}
+.map-bkg.active {
+	display: block;
 }
 
 .hidden {
@@ -121,12 +151,49 @@
 }
 
 #submaps-wrap {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 100%;
 	max-width: 800px;
-	height: 150px;
+	height: 135px;
 }
 
+#map-sstemp {
+	border: 1px solid transparent;
+	height: 132px;
+	width: 266px;
+	position: relative;
+	float: left;
+}
+#map-moist {
+	border: 1px solid transparent;
+	height: 132px;
+	width: 266px;
+	position: relative;
+	float: left;
+}
+#map-wind {
+	border: 1px solid transparent;
+	height: 132px;
+	width: 266px;
+	position: relative;
+	float: left;
+}
+.map-type-selector {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+.map-type-info {
+	display: none;
+	position: absolute;
+	top: 4px;
+	left: 8px;
+	font-size: 71%;
+	width: 240px;
+}
+.map-type-info.active {
+	display: block;
+}
 .hurr-symbol {
 	width: 60px;
 	height: 60px;
