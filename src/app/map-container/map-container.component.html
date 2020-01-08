@@ -31,44 +31,50 @@
     </div>
 
     <!-- map hurricane blurbs -->
-    <div class="hurr-outcome hidden">
+    <div class="hurr-outcome {{hoa[1]}}">
         <p><strong>Strong hurricane weakens</strong><br>
         Your hurricane got into cooler water and stronger winds at the northern end of the Gulf of Mexico.
         It may have been larger furter south, but here it is weakening.
         </p>
+        <button class="panel-exit" (click)="clearOutcomes()">x</button>
     </div>
 
-    <div class="hurr-outcome hidden">
+    <div class="hurr-outcome {{hoa[3]}} {{hoa[5]}} {{hoa[10]}}">
         <p><strong>Hurricane weakens</strong><br>
         Hurricanes can survive in this area, but conditions are not ideal.
         A big storm can weaken here since ocean temperatures are cooler, air is less humid,
         and upper level winds are higher.
         </p>
+        <button class="panel-exit" (click)="clearOutcomes()">x</button>
     </div>
 
-    <div class="hurr-outcome hidden">
+    <div class="hurr-outcome {{hoa[2]}}">
         <p><strong>Hurricane grows very strong</strong><br>
         Your hurricane is growing into a massive storm because it has just the conditions it needs to grow - warm water, calm winds above, and humidity.
         </p>
+        <button class="panel-exit" (click)="clearOutcomes()">x</button>
     </div>
 
-    <div class="hurr-outcome hidden">
+    <div class="hurr-outcome {{hoa[4]}} {{hoa[6]}}">
         <p><strong>Strong hurricane thrives</strong><br>
         Conditions are pretty good for strong hurricanes here. The water is warm, the winds are calm up high, and the air is humid.
         </p>
+        <button class="panel-exit" (click)="clearOutcomes()">x</button>
     </div>
 
-    <div class="hurr-outcome hidden">
+    <div class="hurr-outcome {{hoa[7]}} {{hoa[8]}} {{hoa[9]}} {{hoa[11]}}">
         <p><strong>No hurricane here!</strong><br>
         Hurricanes and tropical storms don't typically form here.
         It's too windy, the ocean is too cold, and there is less moisture in the air.
         </p>
+        <button class="panel-exit" (click)="clearOutcomes()">x</button>
     </div>
 
-    <div class="hurr-outcome hidden">
+    <div class="hurr-outcome {{hoa[0]}} {{hoa[12]}}">
         <p><strong>Hurricane forms and grows</strong><br>
         Your hurricane is heading west and growing in size. It is in an area with just the right conditions: warm water, calm winds, and moisture.
         </p>
+        <button class="panel-exit" (click)="clearOutcomes()">x</button>
     </div>
 
     <!-- drag and drop interaction -->
@@ -86,7 +92,7 @@
         </div>
     </div>
 
-    <!-- droppable areas TODO: CANNOT OVERCOME LOOPING ERROR ON DROPLISTDATA
+    <!-- droppable areas TODO: CANNOT OVERCOME LOOPING ERROR ON DROPLISTDATA TO CREATE AREAS DYNAMICALLY
     <div *ngFor="let dropArea of dropAreas; let i = index;" id="a{{i}}" class="droppable-area"
         cdkDropList
         cdkDropListData="dropArea{{i}}"
@@ -172,8 +178,8 @@
         [cdkDropListData]="dropArea7"
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea7" cdkDrag cdkDragBoundary=".drag-boundary">
-            <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
+            <div class="no-hurr static">
+                <div class="no-hurr-symbol"></div>
             </div>
         </div>
     </div>
@@ -182,9 +188,9 @@
         [cdkDropListData]="dropArea8"
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea8" cdkDrag cdkDragBoundary=".drag-boundary">
-            <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
-            </div>
+                <div class="no-hurr static">
+                        <div class="no-hurr-symbol"></div>
+                    </div>
         </div>
     </div>
     <div id="a9" class="droppable-area"
@@ -192,8 +198,8 @@
         [cdkDropListData]="dropArea9"
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea9" cdkDrag cdkDragBoundary=".drag-boundary">
-            <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
+            <div class="no-hurr static">
+                <div class="no-hurr-symbol"></div>
             </div>
         </div>
     </div>
@@ -212,8 +218,8 @@
         [cdkDropListData]="dropArea11"
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea11" cdkDrag cdkDragBoundary=".drag-boundary">
-            <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
+            <div class="no-hurr static">
+                <div class="no-hurr-symbol"></div>
             </div>
         </div>
     </div>
@@ -236,16 +242,25 @@
 </div>
 <div id="submaps-wrap" class="">
     <div id="map-sstemp" class="col-xs-4">
-        <a href="javascript:void(0)" class="map-type-selector" (click)="selectMapOverlay('sstemp')"></a>
-        <div id="sst-marker" class="dot-marker" [style.left]="thumbX" [style.top]="thumbY"></div>
+        <a href="javascript:void(0)" class="map-type-selector" (click)="selectMapOverlay('sstemp')">
+        <div class="marker-boundary">
+            <div id="sst-marker" class="dot-marker" [style.left]="thumbX" [style.top]="thumbY"></div>
+        </div>
+        </a>
     </div>
     <div id="map-moist" class="col-xs-4">
-        <a href="javascript:void(0)" class="map-type-selector" (click)="selectMapOverlay('moist')"></a>
-        <div id="m-marker" class="dot-marker" [style.left]="thumbX" [style.top]="thumbY"></div>
+        <a href="javascript:void(0)" class="map-type-selector" (click)="selectMapOverlay('moist')">
+        <div class="marker-boundary">
+            <div id="m-marker" class="dot-marker" [style.left]="thumbX" [style.top]="thumbY"></div>
+        </div>
+        </a>
     </div>
     <div id="map-wind" class="col-xs-4">
-        <a href="javascript:void(0)" class="map-type-selector" (click)="selectMapOverlay('wind')"></a>
-        <div id="w-marker" class="dot-marker" [style.left]="thumbX" [style.top]="thumbY"></div>
+        <a href="javascript:void(0)" class="map-type-selector" (click)="selectMapOverlay('wind')">
+        <div class="marker-boundary">
+           <div id="w-marker" class="dot-marker" [style.left]="thumbX" [style.top]="thumbY"></div> 
+        </div>
+        </a>
     </div>
 </div>
 <p id="tap-instructions">Tap to select a map and explore how each factor affects hurricanes.</p>

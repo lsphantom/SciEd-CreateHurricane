@@ -51,20 +51,20 @@ export class MapContainerComponent implements OnInit {
   thumbX = '65%';
   thumbY = '71%';
 
+  hoa = ['','','','','','','','','','','','',''];
+
   drop(event: CdkDragDrop<string[]>)
   {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     }
     else {
-      console.log('prev cont: ', event.previousContainer);
-      console.log('current: ', event.container);
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
     }
-
+    this.displayOutcome(event.container.id);
     this.calculateDotPosition(event.container.element.nativeElement.offsetLeft, event.container.element.nativeElement.offsetTop);
   }
 
@@ -89,12 +89,23 @@ export class MapContainerComponent implements OnInit {
   }
 
   calculateDotPosition (x, y) {
-    //Calculate new dot position including border offsets ~40px;
-    let newPosX = ((x/800)*100);
-    let newPosY = ((y/400)*100);
+    //Calculate new dot position including border offsets Y-40px, X-50px;
+    let newPosX = ((x/740)*100);
+    let newPosY = ((y/360)*100);
 
     this.thumbX = newPosX + '%';
     this.thumbY = newPosY + '%';
+  }
+
+  clearOutcomes(){
+    this.hoa = ['','','','','','','','','','','','',''];
+  }
+
+  displayOutcome(id) {
+    let index = id.substr(1);
+        index = parseInt(index);
+    this.clearOutcomes();
+    this.hoa[index] = 'active';
   }
 
 
