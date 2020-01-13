@@ -77,6 +77,11 @@
         <button class="panel-exit" (click)="clearOutcomes()">x</button>
     </div>
 
+    <!-- small instructions snippet -->
+    <div id="snippet">
+        <p>Drag <span><img src="assets/symbol.png" height="18" alt="hurricane symbol"></span> to circles on the map.</p>
+    </div>
+
     <!-- drag and drop interaction -->
     <div cdkDropListGroup>
     <div id="starter-list" 
@@ -109,7 +114,7 @@
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea0" cdkDrag cdkDragBoundary=".drag-boundary">
             <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
+                <img src="assets/symbol.png" class="img-responsive forms">
             </div>
         </div>
     </div>
@@ -119,7 +124,7 @@
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea1" cdkDrag cdkDragBoundary=".drag-boundary">
             <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
+                <img src="assets/symbol.png" class="img-responsive shrink">
             </div>
         </div>
     </div>
@@ -129,7 +134,7 @@
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea2" cdkDrag cdkDragBoundary=".drag-boundary">
             <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
+                <img src="assets/symbol.png" class="img-responsive grow">
             </div>
         </div>
     </div>
@@ -139,7 +144,7 @@
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea3" cdkDrag cdkDragBoundary=".drag-boundary">
             <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
+                <img src="assets/symbol.png" class="img-responsive shrink">
             </div>
         </div>
     </div>
@@ -149,7 +154,7 @@
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea4" cdkDrag cdkDragBoundary=".drag-boundary">
             <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
+                <img src="assets/symbol.png" class="img-responsive grow">
             </div>
         </div>
     </div>
@@ -159,7 +164,7 @@
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea5" cdkDrag cdkDragBoundary=".drag-boundary">
             <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
+                <img src="assets/symbol.png" class="img-responsive shrink">
             </div>
         </div>
     </div>
@@ -169,7 +174,7 @@
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea6" cdkDrag cdkDragBoundary=".drag-boundary">
             <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
+                <img src="assets/symbol.png" class="img-responsive grow">
             </div>
         </div>
     </div>
@@ -209,7 +214,7 @@
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea10" cdkDrag cdkDragBoundary=".drag-boundary">
             <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
+                <img src="assets/symbol.png" class="img-responsive shrink">
             </div>
         </div>
     </div>
@@ -229,7 +234,7 @@
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of dropArea12" cdkDrag cdkDragBoundary=".drag-boundary">
             <div class="hurr-symbol rotating">
-                <img src="assets/symbol.png" class="img-responsive">
+                <img src="assets/symbol.png" class="img-responsive forms">
             </div>
         </div>
     </div>
